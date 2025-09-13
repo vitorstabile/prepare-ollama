@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  prepare_ollama:
+    build: .
+    container_name: prepare-ollama
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./output:/app/output
+    entrypoint: >
+      python prepare_ollama_llm.py
+      --model deepseek-r1:8b
+      --output /app/output/ollama-deepseek-8b.tar
+      --image-name ollama-with-deepseek-8

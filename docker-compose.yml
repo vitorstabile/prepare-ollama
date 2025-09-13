@@ -9,6 +9,6 @@ services:
       - ./output:/app/output
     entrypoint: >
       python prepare_ollama_llm.py
-      --model deepseek-r1:8b
-      --output /app/output/ollama-deepseek-8b.tar
-      --image-name ollama-with-deepseek-8
+      --model deepseek-r1:1.5b
+      --output /app/output/ollama-deepseek-1.5b.tar
+      --image-name ollama-with-deepseek-1.5b

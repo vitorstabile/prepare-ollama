@@ -6,12 +6,12 @@ def main():
     parser = argparse.ArgumentParser(description="Prepare Ollama image with DeepSeek-R1 for offline use")
     parser.add_argument(
         "--model",
-        default="deepseek-r1:8b",
+        default="deepseek-r1:1.5b",
         help="DeepSeek-R1 model to use (e.g., deepseek-r1:1.5b, deepseek-r1:8b, deepseek-r1:14b)"
     )
     parser.add_argument(
         "--output",
-        default="/app/output/ollama-deepseek-8b.tar",
+        default="/app/output/ollama-deepseek-1.5b.tar",
         help="Name of the .tar file to export the image"
     )
     parser.add_argument(
@@ -40,7 +40,7 @@ def main():
     )
 
     try:
-        print(f"==> 3. Pulling model {MODEL} inside the container...)
+        print(f"==> 3. Pulling model {MODEL} inside the container...")
         exec_log = container.exec_run(f"ollama pull {MODEL}", stdout=True, stderr=True, stream=True)
         for chunk in exec_log[1]:
             sys.stdout.write(chunk.decode(errors="ignore"))
